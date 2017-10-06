@@ -4,7 +4,6 @@
 #picosat: http://fmv.jku.at/picosat/picosat-965.tar.gz
 #lingeling: http://fmv.jku.at/lingeling/lingeling-bbc-9230380-160707.tar.gz
 
-cd libs
 wget http://fmv.jku.at/picosat/picosat-965.tar.gz
 tar -xvzf picosat-965.tar.gz
 rm picosat-965.tar.gz
