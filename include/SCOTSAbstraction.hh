@@ -80,7 +80,7 @@ template <class ConcreteDynamics> void SCOTSAbstraction<ConcreteDynamics>::symbo
     scots::SymbolicSet ss_post = scots::SymbolicSet(mgr, nofStateDimensions, stateWindowLowerBound,stateWindowUpperBound,stateETA);
 
     //TODO: Sometimes the value I do calculate and the one from SCOTS are not equal...this could be a problem in the future?
-    size_t const *nofGridPointsStateAuto = ss_pre.getNofGridPoints();
+    std::vector<scots::abs_type> nofGridPointsStateAuto = ss_pre.get_no_gp_per_dim();
     for (int dim = 0; dim < nofStateDimensions; dim++) {
         /*nofGridPointsState[dim] = static_cast<int>((stateUpperBound[dim] - stateLowerBound[dim])/stateETA[dim]);
         if (nofGridPointsStateAuto[dim] != nofGridPointsState[dim]) {
@@ -99,7 +99,7 @@ template <class ConcreteDynamics> void SCOTSAbstraction<ConcreteDynamics>::symbo
 
     ss_input.print_info(1);
 
-    size_t const *nofGridPointsInputAuto = ss_input.getNofGridPoints();
+    std::vector<scots::abs_type> nofGridPointsInputAuto = ss_input.get_no_gp_per_dim();
 
     for (int dim = 0; dim < nofInputDimensions; dim++) {
         /*nofGridPointsInput[dim] = static_cast<int>((inputUpperBound[dim] - inputLowerBound[dim])/inputETA[dim]);

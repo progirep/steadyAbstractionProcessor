@@ -59,11 +59,11 @@ HEADERS += libs/SCOTSv0.2/utils/RungeKutta4.hh \
 SOURCES += libs/BFAbstractionLibrary/BFCuddManager.cpp libs/BFAbstractionLibrary/bddDump.cpp \
     libs/picosat-965/picosat.c \
     libs/lingeling-bbc-9230380-160707/lglib.c \
-    libs/lingeling/code/lglopts.c \
+    libs/lingeling-bbc-9230380-160707/lglopts.c \
     mainProject.cc
 
 TARGET = mainProject
-INCLUDEPATH = include libs/SCOTSv0.2/src libs/SCOTSv0.2/utils libs/slugs/lib/cudd-3.0.0 libs/slugs/lib/cudd-3.0.0/cudd libs/slugs/lib/cudd-3.0.0/epd libs/slugs/lib/cudd-3.0.0/dddmp libs/slugs/lib/cudd-3.0.0/cplusplus libs/slugs/lib/cudd-3.0.0/mtr libs/slugs/lib/cudd-3.0.0/util libs/slugs/lib/cudd-3.0.0/st libs/picosat-965 libs/lingeling/code libs/BFAbstractionLibrary
+INCLUDEPATH = include libs/SCOTSv0.2/src libs/SCOTSv0.2/utils libs/slugs/lib/cudd-3.0.0 libs/slugs/lib/cudd-3.0.0/cudd libs/slugs/lib/cudd-3.0.0/epd libs/slugs/lib/cudd-3.0.0/dddmp libs/slugs/lib/cudd-3.0.0/cplusplus libs/slugs/lib/cudd-3.0.0/mtr libs/slugs/lib/cudd-3.0.0/util libs/slugs/lib/cudd-3.0.0/st libs/picosat-965 libs/lingeling-bbc-9230380-160707 libs/BFAbstractionLibrary
 
 LIBS += -static -L$$_PRO_FILE_PWD_/libs/slugs/lib/cudd-3.0.0/cudd/.libs -lcudd
 
