@@ -1,7 +1,6 @@
 To build:
 
-- cd libs; cd cudd-3.0.0; aclocal; autoconf; automake; ./configure --enable-shared --enable-static --enable-obj --enable-dddmp; make; cd ../..
-- cd libs; cd slugs_unstable; cd src; make; cd ../..
+- cd libs; ./initLibraries.sh; cd ..
 - qmake Tool.pro
 - make
 
