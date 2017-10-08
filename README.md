@@ -1,6 +1,6 @@
 To build:
 
-- cd libs; ./initLibraries.sh; cd .. 
+- cd libs; ./initLibraries.sh; cd ..
 - qmake Tool.pro
 - make
 
