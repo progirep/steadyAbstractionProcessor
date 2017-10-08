@@ -61,6 +61,7 @@ before_install:
   # - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then virtualenv venv -p python; fi
   # - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then source venv/bin/activate; fi
 script:
+  - g++ -v
   - cd libs; ./initLibraries.sh; cd ..
   - qmake Tool.pro
   - make
