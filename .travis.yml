@@ -12,6 +12,7 @@ matrix:
           packages:
             - g++-5
             - libboost-all-dev
+            - qt5-qmake
       env: CXX=g++-5
       env: CC=gcc-5
     - compiler: gcc-6
@@ -25,6 +26,7 @@ matrix:
           packages:
             - g++-6 
             - libboost-all-dev
+            - qt5-qmake
       env: CXX=g++-6
       env: CC=gcc-6
     - compiler: clang-3.7
@@ -39,6 +41,7 @@ matrix:
           packages:
             - clang-3.7
             - libboost-all-dev
+            - qt5-qmake
       env: CXX=clang++-3.7
       env: CC=clang++-3.7
     - compiler: clang
