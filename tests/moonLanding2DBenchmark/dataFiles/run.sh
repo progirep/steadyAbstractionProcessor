@@ -1,1 +1,1 @@
-../../mainProject --moon --dumb moonLandingDynamics.conf
+../../mainProject --moon --bare moonLandingDynamics.conf

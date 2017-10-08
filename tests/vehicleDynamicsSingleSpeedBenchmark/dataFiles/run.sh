@@ -1,1 +1,1 @@
-../../mainProject --dumb --vehicleSingleSpeed vehicleDynamicsSingleSpeed.conf
+../../mainProject --bare --vehicleSingleSpeed vehicleDynamicsSingleSpeed.conf

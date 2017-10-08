@@ -24,7 +24,7 @@
 #include "moonLandingDynamics.hh"
 #include "moonLanding1DDynamics.hh"
 #include "smartAbstractionProcessor.hh"
-#include "dumbAbstractionProcessor.hh"
+#include "bareAbstractionProcessor.hh"
 #include "workspaceProperties.hh"
 #include "hybridAbstractionProcessor.hh"
 
@@ -68,12 +68,12 @@ int main(int argc, char **args) {
         std::string allOptions = " ";
         for (auto it : options) allOptions = allOptions + it + " ";
 
-        if (allOptions==" --dumb --moon ") {
-            runConfiguration<MoonLandingDynamics,DumbAbstractionProcessor<SCOTSAbstraction<MoonLandingDynamics>,WorkspaceProperties<MoonLandingDynamics>>>(configurationFile);
-        } else if (allOptions==" --dumb --simple ") {
-            runConfiguration<VehicleDynamicsSimple,DumbAbstractionProcessor<SCOTSAbstraction<VehicleDynamicsSimple>,WorkspaceProperties<VehicleDynamicsSimple>>>(configurationFile);
-        } else if (allOptions==" --dumb --vehicle ") {
-            runConfiguration<VehicleDynamics,DumbAbstractionProcessor<SCOTSAbstraction<VehicleDynamics>,WorkspaceProperties<VehicleDynamics>>>(configurationFile);
+        if (allOptions==" --bare --moon ") {
+            runConfiguration<MoonLandingDynamics,BareAbstractionProcessor<SCOTSAbstraction<MoonLandingDynamics>,WorkspaceProperties<MoonLandingDynamics>>>(configurationFile);
+        } else if (allOptions==" --bare --simple ") {
+            runConfiguration<VehicleDynamicsSimple,BareAbstractionProcessor<SCOTSAbstraction<VehicleDynamicsSimple>,WorkspaceProperties<VehicleDynamicsSimple>>>(configurationFile);
+        } else if (allOptions==" --bare --vehicle ") {
+            runConfiguration<VehicleDynamics,BareAbstractionProcessor<SCOTSAbstraction<VehicleDynamics>,WorkspaceProperties<VehicleDynamics>>>(configurationFile);
         } else if (allOptions==" --moon --steady ") {
             runConfiguration<MoonLandingDynamics,SmartAbstractionProcessor<SCOTSAbstraction<MoonLandingDynamics>,WorkspaceProperties<MoonLandingDynamics>,PicosatSolver,false,false>>(configurationFile);
         } else if (allOptions==" --moon --removeDominant --steady ") {
@@ -152,10 +152,10 @@ int main(int argc, char **args) {
             runConfiguration<VehicleDynamicsSingleSpeed,HybridAbstractionProcessor<SCOTSAbstraction<VehicleDynamicsSingleSpeed>,WorkspaceProperties<VehicleDynamicsSingleSpeed>,PicosatSolver>>(configurationFile);
         } else if (allOptions==" --hybrid --lingeling --vehicleSingleSpeed ") {
             runConfiguration<VehicleDynamicsSingleSpeed,HybridAbstractionProcessor<SCOTSAbstraction<VehicleDynamicsSingleSpeed>,WorkspaceProperties<VehicleDynamicsSingleSpeed>,LingelingSolver>>(configurationFile);
-        } else if (allOptions==" --dumb --moon1D ") {
-            runConfiguration<MoonLanding1DDynamics,DumbAbstractionProcessor<SCOTSAbstraction<MoonLanding1DDynamics>,WorkspaceProperties<MoonLanding1DDynamics>>>(configurationFile);
-        } else if (allOptions==" --dumb --vehicleSingleSpeed ") {
-            runConfiguration<VehicleDynamicsSingleSpeed,DumbAbstractionProcessor<SCOTSAbstraction<VehicleDynamicsSingleSpeed>,WorkspaceProperties<VehicleDynamicsSingleSpeed>>>(configurationFile);
+        } else if (allOptions==" --bare --moon1D ") {
+            runConfiguration<MoonLanding1DDynamics,BareAbstractionProcessor<SCOTSAbstraction<MoonLanding1DDynamics>,WorkspaceProperties<MoonLanding1DDynamics>>>(configurationFile);
+        } else if (allOptions==" --bare --vehicleSingleSpeed ") {
+            runConfiguration<VehicleDynamicsSingleSpeed,BareAbstractionProcessor<SCOTSAbstraction<VehicleDynamicsSingleSpeed>,WorkspaceProperties<VehicleDynamicsSingleSpeed>>>(configurationFile);
         } else if (allOptions==" --moon1D --steady ") {
             runConfiguration<MoonLanding1DDynamics,SmartAbstractionProcessor<SCOTSAbstraction<MoonLanding1DDynamics>,WorkspaceProperties<MoonLanding1DDynamics>,PicosatSolver,false,false>>(configurationFile);
         } else if (allOptions==" --moon1D --restrictSpreading --steady ") {

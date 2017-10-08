@@ -1,1 +1,1 @@
-../../../libs/slugs_unstable/tools/pyGameNondeterministicMotionVisualizer.py slugsExample.png 
+../../../libs/slugs/tools/pyGameNondeterministicMotionVisualizer.py slugsExample.png 

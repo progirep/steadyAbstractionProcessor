@@ -35,7 +35,7 @@ HEADERS += libs/SCOTSv0.2/utils/RungeKutta4.hh \
            include/vehicleDynamics.hh \
            include/satSolvers.hpp \
            include/smartAbstractionProcessor.hh \
-           include/dumbAbstractionProcessor.hh \
+           include/bareAbstractionProcessor.hh \
            include/workspaceProperties.hh \
            libs/picosat-965/picosat.h \
            libs/SCOTSv0.2/src/TransitionFunction.hh \

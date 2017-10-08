@@ -106,8 +106,8 @@ xbit>="""+str(43/splittingFactorX-1)+""" & ybit<="""+str(43/splittingFactorY-1)+
 # Write directories
 # ===================================================
 for caseName,parameterToTheAbstractionGenerator,xSplitConf,ySplitConf,curHeadingSplitConf,xSplitSpec,ySplitSpec,curHeadingSplitSpec,xEta,yEta,curHeadingEta in [
-     ("DumbFine","--vehicleSingleSpeed --dumb",1,1,1,1,1,1,ETA_X,ETA_Y,ETA_CUR_HEADING),
-     ("DumbCoarse","--vehicleSingleSpeed --dumb",1,1,1,SPLITTING_FACTOR_X,SPLITTING_FACTOR_Y,SPLITTING_FACTOR_CUR_HEADING,SPLITTING_FACTOR_X*ETA_X,SPLITTING_FACTOR_Y*ETA_Y,SPLITTING_FACTOR_CUR_HEADING*ETA_CUR_HEADING),
+     ("BareFine","--vehicleSingleSpeed --bare",1,1,1,1,1,1,ETA_X,ETA_Y,ETA_CUR_HEADING),
+     ("BareCoarse","--vehicleSingleSpeed --bare",1,1,1,SPLITTING_FACTOR_X,SPLITTING_FACTOR_Y,SPLITTING_FACTOR_CUR_HEADING,SPLITTING_FACTOR_X*ETA_X,SPLITTING_FACTOR_Y*ETA_Y,SPLITTING_FACTOR_CUR_HEADING*ETA_CUR_HEADING),
      ("SteadyNoFilter","--vehicleSingleSpeed --steady",SPLITTING_FACTOR_X,SPLITTING_FACTOR_Y,SPLITTING_FACTOR_CUR_HEADING,SPLITTING_FACTOR_X,SPLITTING_FACTOR_Y,SPLITTING_FACTOR_CUR_HEADING,ETA_X,ETA_Y,ETA_CUR_HEADING),
      ("SteadyFilter","--vehicleSingleSpeed --steady --removeDominant",SPLITTING_FACTOR_X,SPLITTING_FACTOR_Y,SPLITTING_FACTOR_CUR_HEADING,SPLITTING_FACTOR_X,SPLITTING_FACTOR_Y,SPLITTING_FACTOR_CUR_HEADING,ETA_X,ETA_Y,ETA_CUR_HEADING),
      ("SteadyRestrictSpreading","--vehicleSingleSpeed --steady --removeDominant --restrictSpreading",SPLITTING_FACTOR_X,SPLITTING_FACTOR_Y,SPLITTING_FACTOR_CUR_HEADING,SPLITTING_FACTOR_X,SPLITTING_FACTOR_Y,SPLITTING_FACTOR_CUR_HEADING,ETA_X,ETA_Y,ETA_CUR_HEADING),
