@@ -63,5 +63,4 @@ before_install:
 script:
   - g++ -v
   - cd libs; ./initLibraries.sh; cd ..
-  - qmake Tool.pro
   - make
