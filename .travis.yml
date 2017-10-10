@@ -139,4 +139,4 @@ script:
   - cd libs; ./initLibraries.sh; cd ..
   - echo $CXX
   - echo $CC
-  - make
+  - make CC=$CC CXX=$CXX
