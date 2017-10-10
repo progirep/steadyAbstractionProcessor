@@ -1,7 +1,6 @@
 To build:
 
 - cd libs; ./initLibraries.sh; cd ..
-- qmake Tool.pro
 - make
 
 To run examples:

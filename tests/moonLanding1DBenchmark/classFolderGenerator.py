@@ -105,8 +105,8 @@ taskCounter=4 -> taskCounter'=4 | xbit'<="""+str(4/splittingFactorX-1)+""" & xSp
 # Write directories
 # ===================================================
 for caseName,parameterToTheAbstractionGenerator,xSplitConf,xSpeedSplitConf,xSplitSpec,xSpeedSplitSpec,xEta,xSpeedEta in [
-     ("DumbFine","--moon1D --dumb",1,1,1,1,ETA_X,ETA_XSPEED),
-     ("DumbCoarse","--moon1D --dumb",1,1,SPLITTING_FACTOR_X,SPLITTING_FACTOR_X_SPEED,SPLITTING_FACTOR_X*ETA_X,SPLITTING_FACTOR_X_SPEED*ETA_XSPEED),
+     ("BareFine","--moon1D --bare",1,1,1,1,ETA_X,ETA_XSPEED),
+     ("BareCoarse","--moon1D --bare",1,1,SPLITTING_FACTOR_X,SPLITTING_FACTOR_X_SPEED,SPLITTING_FACTOR_X*ETA_X,SPLITTING_FACTOR_X_SPEED*ETA_XSPEED),
      ("SteadyNoFilter","--moon1D --steady",SPLITTING_FACTOR_X,SPLITTING_FACTOR_X_SPEED,SPLITTING_FACTOR_X,SPLITTING_FACTOR_X_SPEED,ETA_X,ETA_XSPEED),
      ("SteadyFilter","--moon1D --steady --removeDominant",SPLITTING_FACTOR_X,SPLITTING_FACTOR_X_SPEED,SPLITTING_FACTOR_X,SPLITTING_FACTOR_X_SPEED,ETA_X,ETA_XSPEED),
      ("SteadyRestrictSpreading","--moon1D --steady --removeDominant --restrictSpreading",SPLITTING_FACTOR_X,SPLITTING_FACTOR_X_SPEED,SPLITTING_FACTOR_X,SPLITTING_FACTOR_X_SPEED,ETA_X,ETA_XSPEED),

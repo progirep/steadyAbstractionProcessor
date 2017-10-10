@@ -1,5 +1,5 @@
-#ifndef __DUMB_ABSTRACTION_PROCESSOR_HH__
-#define __DUMB_ABSTRACTION_PROCESSOR_HH__
+#ifndef __BARE_ABSTRACTION_PROCESSOR_HH__
+#define __BARE_ABSTRACTION_PROCESSOR_HH__
 
 #include <iostream>
 #include <fstream>
@@ -12,7 +12,7 @@
 #include "tools.hh"
 
 
-template<class ConcreteSCOTSAbstraction, class ConcreteWorkspaceProperties> class DumbAbstractionProcessor {
+template<class ConcreteSCOTSAbstraction, class ConcreteWorkspaceProperties> class BareAbstractionProcessor {
 private:
     ConcreteSCOTSAbstraction SCOTSAbstraction;
     ConcreteWorkspaceProperties workspaceProperties;
@@ -23,16 +23,16 @@ private:
     typedef typename ConcreteSCOTSAbstraction::ConcreteDynamics::discrete_input_type_hasher input_type_hasher;
 
 public:
-    DumbAbstractionProcessor(ConcreteSCOTSAbstraction, ConcreteWorkspaceProperties);
+    BareAbstractionProcessor(ConcreteSCOTSAbstraction, ConcreteWorkspaceProperties);
     void convertNormalTransitionIntoSteadyTransitions();
     void computeAbstraction();
 };
 
-template<class ConcreteSCOTSAbstraction, class ConcreteWorkspaceProperties> DumbAbstractionProcessor<ConcreteSCOTSAbstraction,ConcreteWorkspaceProperties>::DumbAbstractionProcessor(ConcreteSCOTSAbstraction _SCOTSAbstraction, ConcreteWorkspaceProperties _workspaceProperties) :
+template<class ConcreteSCOTSAbstraction, class ConcreteWorkspaceProperties> BareAbstractionProcessor<ConcreteSCOTSAbstraction,ConcreteWorkspaceProperties>::BareAbstractionProcessor(ConcreteSCOTSAbstraction _SCOTSAbstraction, ConcreteWorkspaceProperties _workspaceProperties) :
     SCOTSAbstraction(_SCOTSAbstraction), workspaceProperties(_workspaceProperties) {}
 
 
-template<class ConcreteSCOTSAbstraction, class ConcreteWorkspaceProperties> void DumbAbstractionProcessor<ConcreteSCOTSAbstraction,ConcreteWorkspaceProperties>::computeAbstraction() {
+template<class ConcreteSCOTSAbstraction, class ConcreteWorkspaceProperties> void BareAbstractionProcessor<ConcreteSCOTSAbstraction,ConcreteWorkspaceProperties>::computeAbstraction() {
 
     //This map holds all transitions from the microcells that together form the macrocell "of interest"
     std::unordered_map<state_type, std::map<input_type,std::list<state_type>>, state_type_hasher> transitionMap;
@@ -150,8 +150,8 @@ template<class ConcreteSCOTSAbstraction, class ConcreteWorkspaceProperties> void
     //For every transition in the map, we will "copy & paste" every transition for the corresponding invariant dimensions of the states
 
     // Writing every transition to a file for debugging
-#ifdef WRITE_DUMB_ABSTRACTION_FILE
-    std::ofstream myfile("DumbAbstraction.txt");
+#ifdef WRITE_BARE_ABSTRACTION_FILE
+    std::ofstream myfile("BareAbstraction.txt");
 #endif
 
     std::map<std::vector<int>, int> macrocellsChecked;
@@ -248,7 +248,7 @@ template<class ConcreteSCOTSAbstraction, class ConcreteWorkspaceProperties> void
 
                         BF nextMacrocell = mgrBDD.constantTrue();
 
-    #ifdef WRITE_DUMB_ABSTRACTION_FILE
+    #ifdef WRITE_BARE_ABSTRACTION_FILE
                         myfile << "(" << startingMacrocell[0];
                         for (int dim = 1; dim < nofDimensionsPerState; dim++) {
                             myfile << "," << startingMacrocell[dim];
@@ -261,14 +261,14 @@ template<class ConcreteSCOTSAbstraction, class ConcreteWorkspaceProperties> void
     #endif
 
                         for (unsigned int i = 0; i < nofDimensionsPerState; i++) {
-    #ifdef WRITE_DUMB_ABSTRACTION_FILE
+    #ifdef WRITE_BARE_ABSTRACTION_FILE
                             if (i !=0) myfile << "," << static_cast<int>(nextMicrocell[i]/splittingFactor[i]);
     #endif
                             int dimValue = static_cast<int>(nextMicrocell[i]/splittingFactor[i]);
                             nextMacrocell &= encodeInBFBits(mgrBDD,dimValue,nextStateDimensionsEncodingBits[i]);
                         }
 
-    #ifdef WRITE_DUMB_ABSTRACTION_FILE
+    #ifdef WRITE_BARE_ABSTRACTION_FILE
                         myfile << ")" << std::endl;
     #endif
                         allTransitions |= startingMacrocellEncoding & controlInputEncoded & nextMacrocell;
@@ -285,8 +285,8 @@ template<class ConcreteSCOTSAbstraction, class ConcreteWorkspaceProperties> void
 
     }
 
-#ifdef WRITE_DUMB_ABSTRACTION_FILE
-    if (myfile.fail()) throw "Error writing to DumbAbstraction file.";
+#ifdef WRITE_BARE_ABSTRACTION_FILE
+    if (myfile.fail()) throw "Error writing to BareAbstraction file.";
     myfile.close();
 #endif
 
