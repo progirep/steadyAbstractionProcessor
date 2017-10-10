@@ -75,7 +75,6 @@ matrix:
       env:
         - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0"
         
-        include:
     - os: osx
       osx_image: xcode8
       env:
