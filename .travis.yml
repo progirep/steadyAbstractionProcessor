@@ -137,4 +137,6 @@ before_install:
 script:
   - $CXX -v
   - cd libs; ./initLibraries.sh; cd ..
+  - echo $CXX
+  - echo $CC
   - make
